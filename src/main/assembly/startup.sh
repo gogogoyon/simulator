@@ -1,0 +1,1 @@
+nohup java -jar gxbridge-1.0.0.jar --spring.config.location=file:config/application.properties,file:config/system.properties  > console.log &

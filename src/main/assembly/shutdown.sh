@@ -1,0 +1,1 @@
+curl -u admin:gxbridge -X POST localhost:8090/shutdown
