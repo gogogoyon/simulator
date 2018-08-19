@@ -25,25 +25,8 @@ public class InterfaceCaseOutputForwarder implements OutputForwarder {
 
 	@Override
 	public void forward() {
-		JavascriptInterpreter<String> interpreter = new JavascriptInterpreter<String>(request);
-		
-		String output = interfaceCase.getResponse();
-		char[] charArray = output.toCharArray();
-		StringBuilder sb = new StringBuilder();
-		ScriptStateMachine stateMachine = new ScriptStateMachine();
-		
-		for(int i=0; i < charArray.length; i ++ ) {
-			MatchStatus status = stateMachine.next(charArray[i]);
-			if(status == MatchStatus.None) {
-				sb.append(charArray[i]);
-			}
-			
-			if(status == MatchStatus.Ready) {
-				sb.append(interpreter.interpret(stateMachine.getValue()));
-			}
-		}
-		
-		forward(sb.toString());
+		JavascriptInterpreter<String> interpreter = new JavascriptInterpreter<String>(request);	
+		forward(new ScriptOutputParser(interpreter).parse(interfaceCase.getResponse()));
 	}
 	
 	private void forward(String output) {

@@ -26,6 +26,14 @@ public class JavascriptInterpreter<T> implements ScriptInterpreter<T> {
 			throw new IllegalStateException("Unsupported engine for javascript.");
 		}
 	}
+	
+	public JavascriptInterpreter() {
+		ScriptEngineManager engineManager = new ScriptEngineManager();
+		engine = engineManager.getEngineByName("js");
+		if(engine == null) {
+			throw new IllegalStateException("Unsupported engine for javascript.");
+		}
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

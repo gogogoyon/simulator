@@ -33,8 +33,9 @@ public class ScriptStateMachine implements StateMachine<Character, MatchStatus, 
 				headBack.append(input);
 			}				
 			
-			if(status == MatchStatus.Head && match == '>') {
+			if(status == MatchStatus.Head && match == '>') {				
 				status = MatchStatus.Begin;
+				headBack = new StringBuilder();
 			}
 			
 			if(status == MatchStatus.Begin && match == '<') {
