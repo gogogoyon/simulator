@@ -33,7 +33,7 @@
 
 	<!-- 全局日志级别及输出方案 -->
 	<root>
-		<level value="INFO" />
+		<level value="DEBUG" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>

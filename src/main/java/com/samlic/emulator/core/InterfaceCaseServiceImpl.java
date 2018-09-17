@@ -31,14 +31,17 @@ public class InterfaceCaseServiceImpl implements InterfaceCaseService {
 	
 	@Transactional
 	public void deleteInterfaceCase(InterfaceCase data) {
+		InterfaceCase old = caseDao.query(data.getId());
 		caseDao.delete(data.getId());
-		InterfaceCaseManager.delete(data);
+		InterfaceCaseManager.delete(old);
 	}
 	
 	@Transactional
 	public void updateInterfaceCase(InterfaceCase data) {
+		InterfaceCase old = caseDao.query(data.getId());
 		caseDao.update(data);
-		InterfaceCaseManager.update(data);
+		InterfaceCaseManager.delete(old);
+		InterfaceCaseManager.add(data);
 	}
 	
 	public List<InterfaceCase> queryAll() {

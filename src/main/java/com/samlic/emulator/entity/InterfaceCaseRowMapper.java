@@ -18,9 +18,9 @@ public class InterfaceCaseRowMapper implements RowMapper<InterfaceCase> {
 		interfaceCase.setName(rs.getString("NAME"));
 		interfaceCase.setResponse(rs.getString("RESPONSE"));
 		interfaceCase.setStatus(rs.getInt("STATUS"));
-		interfaceCase.setUpdateTIme(rs.getDate("UPDATE_TIME"));
+		interfaceCase.setUpdateTime(rs.getDate("UPDATE_TIME"));
 		interfaceCase.setUrl(rs.getString("URL"));
-		
+		interfaceCase.setGrouping(rs.getString("GROUPING"));
 		return interfaceCase;
 	}
 

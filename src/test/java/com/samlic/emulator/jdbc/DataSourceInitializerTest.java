@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.samlic.emulator.dao.InterfaceCaseDao;
 import com.samlic.emulator.entity.InterfaceCase;
@@ -24,7 +25,7 @@ public class DataSourceInitializerTest {
 	@Autowired
 	private InterfaceCaseDao caseDao;
 	
-	@Test
+	@Test @Transactional
 	public void test() {
 		InterfaceCase interfaceCase = new InterfaceCase();
 		interfaceCase.setContentType("text/plain");
@@ -39,6 +40,7 @@ public class DataSourceInitializerTest {
 		Assert.assertTrue(caseList.size() == count);
 	}
 	
+	
 	public void insert() {
 		InterfaceCase data = new InterfaceCase();
 		data.setContentType("text/plain");
@@ -47,8 +49,9 @@ public class DataSourceInitializerTest {
 		data.setName("getTest");
 		data.setResponse("<h>Get method test successfully.</h>");
 		data.setStatus(0);
-		data.setUpdateTIme(new Date());
+		data.setUpdateTime(new Date());
 		data.setUrl("/test/getTest");
+		data.setGrouping("Grouping");
 		
 		caseDao.add(data);
 	}

@@ -2,6 +2,7 @@
 create table T_INTERFACE_CASE (
 	id integer not null primary key,
 	name varchar(80),
+	grouping varchar(80),
 	url varchar(1024),
 	match_rule varchar(4096),
 	response varchar(10240),

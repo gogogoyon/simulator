@@ -20,8 +20,8 @@ public class InterfaceCaseDaoImpl implements InterfaceCaseDao {
 	@Override
 	public void add(InterfaceCase data) {
 		Integer id = jdbcTemplate.queryForObject("values next value for interface_case_id", Integer.class);
-		jdbcTemplate.update("insert into t_interface_case values(?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-				id, data.getName(), data.getUrl(), data.getMatchRule(), data.getResponse(), data.getContentType(), data.getStatus(), data.getCreateTime(), data.getUpdateTIme());
+		jdbcTemplate.update("insert into t_interface_case(id, name, grouping, url, match_rule, response,content_type, status, create_time, update_time) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+				id, data.getName(), data.getGrouping(), data.getUrl(), data.getMatchRule(), data.getResponse(), data.getContentType(), data.getStatus(), data.getCreateTime(), data.getUpdateTime());
 		data.setId(id);
 	}
 
@@ -32,8 +32,8 @@ public class InterfaceCaseDaoImpl implements InterfaceCaseDao {
 
 	@Override
 	public void update(InterfaceCase data) {
-		jdbcTemplate.update("update t_interface_case set name=?, url=?, match_rule=?, output=?, content_type=?, create_time=?, update_time=?  where id = ?",
-				data.getName(), data.getUrl(), data.getMatchRule(), data.getResponse(), data.getContentType(), data.getStatus(), data.getCreateTime(), data.getUpdateTIme(), data.getId());		
+		jdbcTemplate.update("update t_interface_case set name=?, grouping=?, url=?, match_rule=?, response=?, content_type=?, status=?, create_time=?, update_time=?  where id = ?",
+				data.getName(), data.getGrouping(), data.getUrl(), data.getMatchRule(), data.getResponse(), data.getContentType(), data.getStatus(), data.getCreateTime(), data.getUpdateTime(), data.getId());		
 	}
 
 	@Override

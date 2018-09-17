@@ -41,11 +41,6 @@ public class InterfaceCaseManager {
 		}
 	}
 	
-	public static void update(InterfaceCase interfaceCase) {
-		delete(interfaceCase);
-		add(interfaceCase);
-	}
-	
 	public static List<InterfaceCase> queryAll() {
 		List<InterfaceCase> dataList = new ArrayList<InterfaceCase>();
 		for(List<InterfaceCase> item : caseMap.values()) {

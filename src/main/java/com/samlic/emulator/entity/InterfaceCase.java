@@ -11,8 +11,15 @@ public class InterfaceCase {
 	private String contentType;
 	private Integer status;	
 	private Date createTime;
-	private Date updateTIme;
+	private Date updateTime;
+	private String grouping;	
 	
+	public String getGrouping() {
+		return grouping;
+	}
+	public void setGrouping(String grouping) {
+		this.grouping = grouping;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -61,11 +68,11 @@ public class InterfaceCase {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-	public Date getUpdateTIme() {
-		return updateTIme;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
-	public void setUpdateTIme(Date updateTIme) {
-		this.updateTIme = updateTIme;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	@Override
 	public int hashCode() {
@@ -98,8 +105,47 @@ public class InterfaceCase {
 	
 	@Override
 	public String toString() {
-		return "InterfaceCase [id=" + id + ", name=" + name + ", url=" + url 
-				+ ", contentType=" + contentType + ", status=" + status + ", createTime=" + createTime
-				+ ", updateTIme=" + updateTIme + "]";
+		StringBuilder sb = new StringBuilder();
+		if(id != null) {
+			sb.append("$id=" + id);
+		}
+		
+		if(name != null) {
+			sb.append("&name=" + name);
+		}
+		
+		if(url != null) {
+			sb.append("&url=" + url);
+		}
+		
+		if(matchRule != null) {
+			sb.append("&matchRule=" + matchRule);
+		}
+		
+		if(response != null) {
+			sb.append("&response=" + response);
+		}
+		
+		if(grouping != null) {
+			sb.append("&grouping=" + grouping);
+		}
+		
+		if(contentType != null) {
+			sb.append("&contentType=" + contentType);
+		}
+		
+		if(status != null) {
+			sb.append("&status=" + status);
+		}		
+		
+		if(createTime != null) {			
+			sb.append("&createTime=" + createTime);			
+		}
+		
+		if(updateTime != null) {			
+			sb.append("&updateTime=" + updateTime);
+		}
+		
+		return sb.length() > 0 ? sb.substring(1) : "";
 	}
 }
