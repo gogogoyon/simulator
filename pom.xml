@@ -9,8 +9,7 @@
 	<name>simulator</name>
 	<description>A Simulator For Http</description>
 
-	<modules>
-		<module>simulator-api</module>
+	<modules>		
 		<module>simulator-client</module>
 		<module>simulator-server</module>
 	</modules>
